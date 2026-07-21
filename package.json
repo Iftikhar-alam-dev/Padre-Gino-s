@@ -1,0 +1,25 @@
+{
+  "name": "pizza-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,json,css,html}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iftikhar-alam-dev/Padre-Gino-s.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Iftikhar-alam-dev/Padre-Gino-s/issues"
+  },
+  "homepage": "https://github.com/Iftikhar-alam-dev/Padre-Gino-s#readme",
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  }
+}
