@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "perview": "vite preview",
     "format": "prettier --write \"**/*.{js,jsx,json,css,html}\"",
+    "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,6 +16,7 @@
     "url": "git+https://github.com/Iftikhar-alam-dev/Padre-Gino-s.git"
   },
   "keywords": [],
+  "types": "module",
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -20,6 +25,16 @@
   },
   "homepage": "https://github.com/Iftikhar-alam-dev/Padre-Gino-s#readme",
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.6",
+    "vite": "^5.4.2"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
