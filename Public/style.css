@@ -34,10 +34,12 @@ textarea {
   outline: none;
 }
 
+/* NAV */
+
 nav {
   width: 100%;
   display: grid;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border);
   grid-template-areas: ". logo logo logo cart";
 }
 
@@ -47,9 +49,8 @@ nav {
   background-position: left;
   background-repeat: no-repeat;
   content: url("/public/padre_gino.svg");
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
 }
 
 nav .logo {
@@ -92,10 +93,12 @@ nav > a {
   src: url("/public/Pacifico-Regular.ttf");
 }
 
+/* HEADINGS */
+
 h2 {
   font-family: var(--font);
   font-size: 40px;
-  line-height: auto;
+  line-height: 1;
   font-weight: 400;
   color: var(--primary);
   text-align: center;
@@ -118,47 +121,73 @@ h2::after {
   background-position: top left;
 }
 
-.order {
+/* ORDER PAGE */
+
+.order-page {
   width: 100%;
-  margin-left: 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 500px;
 }
 
-form div {
-  margin: 10px 0;
+/* CREATE ORDER */
+
+.order {
+  width: 100%;
+  padding: 15px 25px;
+  border-right: 1px solid var(--border);
+}
+
+.order h2 {
+  margin-bottom: 25px;
+}
+
+.order form {
+  width: 100%;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-options {
+  width: 100%;
   text-align: center;
 }
 
-form > div {
-  padding: 15px;
-  width: 100%;
-}
-
-form > div:first-child {
-  border-right: 1px solid #ccc;
-}
-
-form > div > div > label {
+.order-options > label {
   display: block;
   font-size: 20px;
   color: var(--secondary);
-  margin-bottom: 10px;
+  margin: 15px 0 10px;
 }
 
-form select {
+.order-options select {
   display: block;
+  width: 100%;
   font-size: 16px;
   padding: 5px;
-  margin-bottom: 30px;
-  width: 100%;
+  margin-bottom: 25px;
 }
 
-form input[type="radio"] {
+.sizes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.sizes input[type="radio"] {
   display: none;
 }
 
-form input + label {
-  height: 80px;
-  width: 80px;
+.sizes input + label {
+  height: 70px;
+  width: 70px;
   border: 1px solid #999;
   background-color: #ccc;
   color: #999;
@@ -167,23 +196,44 @@ form input + label {
   justify-content: center;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 15px 10px 15px;
 }
 
-form input:checked + label {
+.sizes input:checked + label {
   color: #333;
   background-color: #fff;
 }
 
-form > div > div > label {
-  display: block;
+button {
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  font-family: var(--font);
   font-size: 20px;
-  color: var(--secondary);
-  margin-bottom: 10px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  background-color: #ccc;
+}
+
+/* PIZZA */
+
+.order-pizza {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }
 
 .pizza {
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .pizza img {
@@ -202,41 +252,44 @@ form > div > div > label {
   margin-bottom: 5px;
 }
 
-.order form {
-  /* display: flex; */
-
-  justify-content: space-between;
+.order-pizza > p {
+  margin-top: 10px;
 }
 
-button,
-.index li a {
-  border: 1px solid var(--primary);
-  background-color: transparent;
-  color: var(--primary);
-  font-family: var(--font);
-  font-size: 20px;
-  padding: 5px 15px;
-  border-radius: 5px;
-  display: inline-block;
-  cursor: pointer;
-}
+/* CART */
 
-button:disabled {
-  opacity: 0.5;
-  background-color: #ccc;
-}
-
-.order-pizza {
+.order-cart {
   width: 100%;
-  margin-left: 25px;
+  border-left: 1px solid var(--border);
+  padding: 15px;
+  text-align: center;
 }
 
-.pizza {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cart {
+  line-height: 1.5;
+  text-align: center;
+  padding: 15px;
 }
+
+.cart h2 {
+  margin-bottom: 20px;
+}
+
+.cart p {
+  margin: 15px 0;
+}
+
+.cart li {
+  margin: 10px 0;
+}
+
+.cart .size,
+.cart .type,
+.cart .price {
+  display: block;
+}
+
+/* PIZZA OF THE DAY */
 
 .pizza-of-the-day {
   border-top: 1px solid var(--border);
@@ -249,7 +302,6 @@ button:disabled {
     #ddd
   );
 }
-
 
 .pizza-of-the-day > div {
   display: flex;
@@ -274,24 +326,7 @@ button:disabled {
   max-width: 350px;
 }
 
-.order-page {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
-}
-
-.cart {
-  border-left: 1px solid var(--border);
-  line-height: 1.5;
-  text-align: center;
-  padding: 15px;
-}
-
-.cart p {
-  margin: 15px 0;
-}
+/* INDEX */
 
 .index h1 {
   color: var(--primary);
@@ -323,7 +358,6 @@ button:disabled {
 .index ul {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 }
@@ -339,6 +373,8 @@ button:disabled {
   margin-bottom: 10px;
 }
 
+/* PAST ORDERS */
+
 .past-orders {
   min-height: 650px;
   max-width: 900px;
@@ -353,12 +389,12 @@ table {
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
 }
 
 thead tr {
   background-color: var(--secondary);
-  color: #ffffff;
+  color: #fff;
   text-align: left;
 }
 
@@ -369,7 +405,7 @@ td {
 }
 
 tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
 }
 
 tbody tr:nth-of-type(even) {
@@ -379,6 +415,8 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   border-bottom: 2px solid var(--secondary);
 }
+
+/* PAGES */
 
 .pages {
   display: flex;
@@ -391,6 +429,8 @@ tbody tr:last-of-type {
   color: var(--primary);
   font-size: 20px;
 }
+
+/* MODAL */
 
 #modal {
   background-color: rgba(0, 0, 0, 0.9);
@@ -415,9 +455,12 @@ tbody tr:last-of-type {
   border-radius: 30px;
   background: var(--background);
 }
+
 td img {
   width: 10px;
 }
+
+/* ERROR */
 
 .error-boundary {
   min-height: 400px;
@@ -428,6 +471,8 @@ td img {
   color: var(--primary);
   text-decoration: underline;
 }
+
+/* CONTACT */
 
 .contact form {
   display: flex;
@@ -466,4 +511,30 @@ td img {
   margin: 50px;
   font-weight: normal;
   font-size: 30px;
+}
+.index ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  width: 140px;
+}
+
+.index ul li {
+  margin-bottom: 6px;
+}
+
+.index ul li a {
+  display: block;
+  text-align: center;
+  padding: 5px 10px;
+  border: 1px solid #c98b7c;
+  border-radius: 3px;
+  color: #c0392b;
+  text-decoration: none;
+  font-family: Pacifico, cursive;
+  font-size: 14px;
+}
+
+.index ul li a:hover {
+  background: #f8e8df;
 }
